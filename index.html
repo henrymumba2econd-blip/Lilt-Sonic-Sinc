@@ -3,69 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L I L T | APPAREL COLLECTION</title>
+    <title>L I L T | SOVEREIGN APPAREL</title>
     <style>
-        :root { --accent: #ff0055; --gold: #c5a059; --bg: #000; --text: #fff; }
-        body { background: var(--bg); color: var(--text); font-family: 'Times New Roman', serif; margin: 0; letter-spacing: 0.2em; overflow-x: hidden; }
+        :root { --ruby: #ff0055; --bg: #000; --text: #fff; --glass: rgba(255, 255, 255, 0.05); }
+        body { background: var(--bg); color: var(--text); font-family: 'Times New Roman', serif; margin: 0; letter-spacing: 0.15em; overflow-x: hidden; }
         
-        /* HEADER FREQUENCY */
-        header { padding: 40px; border-bottom: 1px solid #111; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 100; }
-        .nav-meta { font-size: 10px; color: #444; }
+        /* RUBY WELCOME INTERFACE */
+        .welcome-node { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border-bottom: 1px solid #111; position: relative; }
+        .welcome-node h1 { font-size: 8rem; font-weight: 100; margin: 0; letter-spacing: 0.4em; filter: drop-shadow(0 0 20px var(--ruby)); }
+        .apparel-tag { font-family: monospace; color: var(--ruby); font-size: 12px; margin-top: -20px; }
 
-        /* THE MANIFEST SECTION */
-        .hero { height: 70vh; display: flex; flex-direction: column; justify-content: center; padding: 60px; border-bottom: 1px solid #111; }
-        .meta-code { font-family: monospace; color: #333; font-size: 11px; margin-bottom: 20px; }
-        .main-title { font-size: 5rem; font-weight: 100; margin: 0; text-transform: uppercase; }
-        .subtitle { border-left: 2px solid var(--accent); padding-left: 20px; font-size: 12px; color: #666; margin-top: 20px; }
+        /* REAL-TIME 3D CUSTOMIZER */
+        .render-vault { padding: 60px 20px; background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%); }
+        .render-canvas { width: 100%; height: 500px; border: 1px solid #222; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+        .render-canvas::before { content: "INITIALIZING 3D RENDER..."; font-family: monospace; color: #333; font-size: 10px; }
+        .custom-ui { margin-top: 20px; padding: 20px; background: var(--glass); border: 1px solid #1a1a1a; }
+        .process-order-btn { display: none; width: 100%; padding: 20px; background: var(--text); color: var(--bg); border: none; font-weight: bold; text-transform: uppercase; cursor: pointer; margin-top: 15px; }
 
-        /* CATALOG NAVIGATION (Base44 Spec) */
-        .catalog-nav { padding: 60px; }
-        .nav-item { display: flex; align-items: baseline; gap: 40px; padding: 30px 0; border-bottom: 1px solid #111; transition: 0.4s; cursor: pointer; }
-        .nav-item:hover { color: var(--accent); padding-left: 20px; }
-        .nav-num { font-family: monospace; font-size: 10px; color: #333; }
-        .nav-label { font-size: 2.5rem; text-transform: uppercase; font-weight: 100; }
+        /* CATALOG NAVIGATION */
+        .catalog-trigger { padding: 40px; text-align: center; border-bottom: 1px solid #111; cursor: pointer; }
+        .catalog-icon { font-size: 2rem; color: var(--ruby); }
 
-        /* CONCIERGE TERMINAL */
-        .concierge { background: #050505; border: 1px solid #111; margin: 40px; padding: 30px; font-family: monospace; font-size: 12px; color: #888; }
-        .concierge-header { color: var(--accent); margin-bottom: 15px; text-transform: uppercase; }
-        .concierge-input { background: none; border: 1px solid #222; color: #fff; width: 100%; padding: 15px; margin-top: 20px; outline: none; }
+        /* SECTION LAYOUTS */
+        section { padding: 80px 40px; border-bottom: 1px solid #111; }
+        .section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2rem; font-weight: 100; text-transform: uppercase; }
+        .section-header span { color: var(--ruby); font-family: monospace; font-size: 12px; }
 
-        footer { position: fixed; bottom: 0; width: 100%; background: rgba(0,0,0,0.9); border-top: 1px solid #111; padding: 20px; display: flex; justify-content: space-between; z-index: 1000; }
-        .btn-claim { background: #fff; color: #000; border: none; padding: 10px 40px; font-weight: bold; text-transform: uppercase; cursor: pointer; }
+        .item-glide { display: flex; gap: 40px; overflow-x: auto; padding-bottom: 40px; }
+        .item-glide::-webkit-scrollbar { display: none; }
+        .item-card { min-width: 320px; height: 480px; background: #050505; border: 1px solid #111; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; transition: 0.5s; }
+        .item-card:hover { border-color: var(--ruby); transform: scale(1.02); }
+        .item-card .label { font-size: 11px; color: #666; text-transform: uppercase; }
+        .item-card .name { font-size: 1.5rem; font-weight: 100; margin-top: 10px; }
+
+        footer { padding: 60px; background: #050505; text-align: center; font-size: 10px; color: #444; letter-spacing: 0.5em; }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">L I L T</div>
-        <div class="nav-meta">CART [00] // FREQ // 2026.04.28</div>
-    </header>
-
-    <div class="hero">
-        <div class="meta-code">// LLT - VC01 - ALPHA COLLECTION - 2026</div>
-        <h1 class="main-title">L I L T</h1>
-        <div class="subtitle">APPAREL COLLECTION // VECTOR.01</div>
+    <div class="welcome-node">
+        <h1>LILT</h1>
+        <div class="apparel-tag">// APPAREL COLLECTION FOLLOWS</div>
     </div>
 
-    <div class="catalog-nav">
-        <div class="nav-item"><span class="nav-num">00.01</span><span class="nav-label">CATALOG</span></div>
-        <div class="nav-item"><span class="nav-num">00.02</span><span class="nav-label">OUTERWEAR</span></div>
-        <div class="nav-item"><span class="nav-num">00.03</span><span class="nav-label">TOPS</span></div>
-        <div class="nav-item"><span class="nav-num">00.04</span><span class="nav-label">BOTTOMS</span></div>
-        <div class="nav-item"><span class="nav-num">00.05</span><span class="nav-label">LAYERS</span></div>
+    <div class="render-vault">
+        <div class="section-header">
+            <span>[ 00.01 ]</span>
+            <h2>Customization Node</h2>
+        </div>
+        <div class="render-canvas" id="canvas">
+            <div style="text-align: center;">
+                <div style="font-size: 14px; color: var(--ruby);">SA AWAY GREEN // JUVENTUS SPECIAL // ENGLAND GOLF PALACE</div>
+                <div style="font-size: 10px; color: #444; margin-top: 10px;">Select to render in 3D space</div>
+            </div>
+        </div>
+        <div class="custom-ui">
+            <div style="font-family: monospace; font-size: 11px; color: #888;">FONT: 2026 ARCHIVE | COLOR: LILT_RUBY</div>
+            <button class="process-order-btn" id="payBtn" onclick="alert('GATEWAY: AIRTEL / SCB / PAYPAL')">Process Order</button>
+        </div>
     </div>
 
-    <div class="concierge">
-        <div class="concierge-header">CONCIERGE ACTIVE</div>
-        <div>Item: South Africa 2026.<br>Mode: 24H local stock.<br>Price Calibration: K550 / R476 / $26.</div>
-        <input type="text" class="concierge-input" placeholder="State your recalibration...">
+    <div class="catalog-trigger" onclick="document.getElementById('catalog').scrollIntoView({behavior: 'smooth'})">
+        <div class="catalog-icon">▽</div>
+        <div style="font-size: 10px; margin-top: 10px;">OPEN CATALOG</div>
     </div>
 
-    <footer style="margin-top: 100px;">
-        <div style="font-size: 10px; color: #444;">SONIC SINC ENGINE [432Hz]</div>
-        <button class="btn-claim" onclick="alert('GATEWAY: 0976622084 | SCB: 0104306596400')">CLAIM MATTER</button>
+    <section id="catalog">
+        <div class="section-header"><span>[ 00.02 ]</span><h2>Sports</h2></div>
+        <div class="item-glide">
+            <div class="item-card"><div class="label">Jersey</div><div class="name">SA Away Green</div></div>
+            <div class="item-card"><div class="label">Jersey</div><div class="name">Juventus Special Kit</div></div>
+            <div class="item-card"><div class="label">Jersey</div><div class="name">England Golf Palace</div></div>
+            <div class="item-card" style="justify-content: center; align-items: center; color: var(--ruby);">View More Sports...</div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-header"><span>[ 00.03 ]</span><h2>Streetwear</h2></div>
+        <div class="item-glide">
+            <div class="item-card"><div class="label">Outerwear</div><div class="name">North Face Puffer</div></div>
+            <div class="item-card"><div class="label">Outerwear</div><div class="name">Carhartt Jacket</div></div>
+            <div class="item-card"><div class="label">Bottoms</div><div class="name">Valley Jorts</div></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-header"><span>[ 00.04 ]</span><h2>Smart</h2></div>
+        <div class="item-glide">
+            <div class="item-card"><div class="label">Tops</div><div class="name">Lacoste Golf T</div></div>
+            <div class="item-card"><div class="label">Outerwear</div><div class="name">Ralph Jacket</div></div>
+            <div class="item-card"><div class="label">Accessories</div><div class="name">Smart Belts & Shoes</div></div>
+        </div>
+    </section>
+
+    <footer>
+        SONIC SINC ENGINE [ 432HZ BIOLOGICAL SYNC ]
     </footer>
 
+    <script>
+        // Placeholder for 3D logic: When a jersey is "selected", show the process button
+        document.getElementById('canvas').onclick = function() {
+            document.getElementById('payBtn').style.display = 'block';
+            this.style.borderColor = '#ff0055';
+        }
+    </script>
 </body>
 </html>
