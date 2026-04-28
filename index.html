@@ -3,120 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L I L T | ARCHITECT_NODE</title>
+    <title>L I L T | VECTOR v1.1</title>
     <style>
-        :root { --ruby: #ff0055; --emerald: #00ff88; --void: #000; --matter: #fff; --grey: #111; }
-        body { background: var(--void); color: var(--matter); font-family: "Times New Roman", serif; margin: 0; letter-spacing: 0.2em; overflow-x: hidden; }
+        :root { --ruby: #ff0055; --emerald: #00ff88; --void: #000; --matter: #fff; --LV_tan: #f5f5f0; }
+        body { background: var(--void); color: var(--matter); font-family: "Times New Roman", serif; margin: 0; letter-spacing: 0.2em; overflow-x: hidden; scroll-behavior: smooth; }
         
-        /* ALPHA INTERFACE STYLES */
-        header { padding: 30px 50px; display: flex; justify-content: space-between; border-bottom: 1px solid var(--grey); position: sticky; top: 0; background: rgba(0,0,0,0.9); z-index: 100; }
-        .logo { font-size: 1.8rem; font-weight: 100; letter-spacing: 0.5em; }
-        section { padding: 100px 50px; border-bottom: 1px solid var(--grey); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
-        
-        .item-node { background: #050505; border: 1px solid var(--grey); padding: 25px; transition: 0.5s; cursor: crosshair; }
-        .item-node:hover { border-color: var(--ruby); }
-        
-        /* LOGISTIC METADATA (Emerald Frequency) */
-        .logistic-meta { margin-top: 20px; font-family: monospace; font-size: 9px; color: var(--emerald); border-top: 1px solid #111; padding-top: 15px; line-height: 1.6; }
-        .origin-tag { display: inline-block; padding: 2px 6px; border: 1px solid var(--emerald); margin-bottom: 5px; text-transform: uppercase; }
+        /* THE PRESTIGE HEADER - (THE LILT FAILSAFE) */
+        header { padding: 40px; display: flex; justify-content: space-between; border-bottom: 1px solid #111; z-index: 1000; position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.9); }
+        .logo_failsafe { display: flex; gap: 5px; font-size: 2rem; font-weight: 100; letter-spacing: 1rem; filter: drop-shadow(0 0 10px var(--ruby)); }
+        .logo_failsafe span { white-space: nowrap; } /* Hard lock L-I-L-T onto one line */
+        .freq-data { font-family: monospace; font-size: 10px; color: #333; }
 
-        /* BETA SITE (GHOST LAYER) */
-        #beta-site { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--void); z-index: 2000; padding: 60px; overflow-y: auto; }
-        .beta-header { color: var(--ruby); font-family: monospace; border-bottom: 1px solid var(--ruby); padding-bottom: 20px; margin-bottom: 40px; }
-        .admin-box { background: #080808; border: 1px solid #222; padding: 30px; margin-bottom: 20px; }
-        input, select { background: none; border: 1px solid #333; color: #fff; padding: 15px; width: 100%; margin-top: 10px; outline: none; }
-        
-        /* CONCIERGE SETTLEMENT */
-        #concierge { display: none; position: fixed; bottom: 30px; right: 30px; width: 350px; background: #080808; border: 1px solid var(--ruby); padding: 30px; z-index: 1500; font-family: monospace; }
-        .pay-btn { width: 100%; padding: 15px; background: none; border: 1px solid #fff; color: #fff; margin-top: 10px; cursor: pointer; text-transform: uppercase; font-size: 10px; }
+        /* THE CHRONOS_SYNC RENDER ENGINE */
+        #alpha-customizer { height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 100px 50px; background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%); }
+        .render-canvas { width: 100%; height: 50vh; border: 1px solid #222; background: url('https://source.unsplash.com/1600x900/?Amapiano,Jersey') center/cover; position: relative; margin-bottom: 30px; display: flex; align-items: center; justify-content: center; overflow: hidden; cursor: crosshair; }
+        .render-canvas::before { content: "INITIALIZING CHRONOS_SYNC..."; font-family: monospace; color: #222; font-size: 11px; }
 
-        footer { padding: 80px 20px; text-align: center; border-top: 1px solid var(--grey); }
-        .frequency-trigger { font-family: monospace; font-size: 10px; color: #333; cursor: pointer; transition: 0.3s; letter-spacing: 0.8em; }
-        .frequency-trigger:hover { color: var(--ruby); }
+        .process-btn { background: none; border: 1px solid #fff; color: #fff; padding: 15px 60px; font-weight: bold; text-transform: uppercase; letter-spacing: 5px; cursor: pointer; transition: 0.3s; width: 100%; }
+        .process-btn:hover { background: #fff; color: #000; }
+
+        /* THE GHOST FOLD PAYMENTS */
+        #payment-node { display: none; margin-top: 20px; padding: 30px; background: #050505; border: 1px solid #222; }
+        .pay-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; text-align: center; font-family: monospace; font-size: 11px; color: #555; }
+        .pay-node { padding: 20px; border: 1px solid #333; cursor: pointer; }
+        .pay-node:hover { color: #fff; border-color: var(--ruby); }
+
+        /* ARTHUR CADENCE (LIVING CONCIERGE) */
+        #concierge-avatar { position: fixed; bottom: 30px; left: 30px; width: 40px; height: 40px; background: var(--ruby); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: serif; color: #fff; font-size: 18px; cursor: pointer; z-index: 2000; box-shadow: 0 0 20px rgba(255,0,85,0.4); animation: breathe 4s infinite; }
+        #concierge-terminal { display: none; position: fixed; bottom: 80px; left: 30px; width: 350px; background: rgba(5,5,5,0.95); backdrop-filter: blur(20px); border: 1px solid var(--ruby); padding: 30px; z-index: 1900; font-family: monospace; color: #888; font-size: 11px; }
+        
+        /* ALPHA AND BETA VIEWS */
+        #beta-ui { display: none; padding: 100px; background: #050505; }
+
+        @keyframes breathe { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.05); opacity: 1; } }
     </style>
 </head>
 <body>
 
+    <header>
+        <div class="logo_failsafe"><span>L</span><span>I</span><span>L</span><span>T</span></div>
+        <div class="freq-data">FREQ // 432Hz // ALPHA // CART[00]</div>
+    </header>
+
     <div id="alpha-ui">
-        <header>
-            <div class="logo">L I L T</div>
-            <div style="font-size: 9px; color: #444;">VECTOR.01 // ALPHA</div>
-        </header>
+        <section id="alpha-customizer">
+            <div style="font-family: monospace; font-size: 10px; color: #333; margin-bottom: 20px;">// RECALIBRATION: VECTOR_01 COLLECTION</div>
+            
+            <div class="render-canvas" onclick="location.href='#beta-unlock'">
+                <div style="text-align: center;">
+                    <div style="font-size: 14px; color: var(--ruby);">SA AWAY // JUVENTUS // ENGLAND PALACE</div>
+                    <div style="font-size: 10px; color: #444; margin-top: 10px;">Click to calibrate in 3D space</div>
+                </div>
+            </div>
 
-        <section>
-            <div style="font-family: monospace; font-size: 10px; color: var(--ruby); margin-bottom: 30px;">// MANIFEST: GLOBAL_LOCAL_CARGO</div>
-            <div class="grid">
+            <div style="text-align: center;">
+                <p style="font-family: monospace; font-size: 12px; color: #666; margin-bottom: 30px;">
+                    FONT: 2026 ARCHIVE | COLOR: LILT_RUBY | 0°Entry Harmony
+                </p>
+                <button class="process-btn" onclick="initiateGhostFold()">Process Order</button>
                 
-                <div class="item-node" onclick="openConcierge('NORTH FACE PUFFER', 'CHINA_GZ', '7 DAYS')">
-                    <div style="height:350px; background:#080808; margin-bottom:20px;"></div>
-                    <div style="font-size:18px;">North Face Puffer</div>
-                    <div class="logistic-meta">
-                        <div class="origin-tag">Origin: China Foundry</div>
-                        <div>PATH: DHL EXPRESS // AIR</div>
-                        <div style="font-weight:bold;">ETA: 5-7 BUSINESS DAYS</div>
+                <div id="payment-node">
+                    <div style="color: var(--matter); margin-bottom: 20px;">CLAIM MATTER</div>
+                    <div class="pay-grid">
+                        <div class="pay-node" onclick="alert('AIRTEL: 0976622084')">00.01<br>Mobile Money</div>
+                        <div class="pay-node" onclick="alert('PAYPAL: G4SFBFM9HVFUS')">00.02<br>PayPal</div>
+                        <div class="pay-node" onclick="alert('SCB: 0104306596400')">00.03<br>Bank</div>
                     </div>
                 </div>
-
-                <div class="item-node" onclick="openConcierge('SA AWAY JERSEY', 'LUSAKA_NODE', '24-48 HRS')">
-                    <div style="height:350px; background:#080808; margin-bottom:20px;"></div>
-                    <div style="font-size:18px;">SA Away Green</div>
-                    <div class="logistic-meta">
-                        <div class="origin-tag" style="border-color:#fff; color:#fff;">Origin: Lusaka Node</div>
-                        <div>PATH: LOCAL LOGISTICS // SURFACE</div>
-                        <div style="font-weight:bold;">ETA: 24-48 HOURS (NDOLA/KALUMBILA)</div>
-                    </div>
-                </div>
-
             </div>
         </section>
-
-        <footer>
-            <div class="frequency-trigger" onclick="accessArchitect()">FREQUENCY // 432Hz // ARCHITECT_SYNC</div>
-        </footer>
     </div>
 
-    <div id="concierge">
-        <div style="color: var(--ruby); margin-bottom: 15px;">SETTLEMENT CONCIERGE</div>
-        <div id="concierge-text" style="font-size: 11px; margin-bottom: 20px;"></div>
-        <button class="pay-btn" onclick="alert('AIRTEL: 0976622084')">Mobile Money</button>
-        <button class="pay-btn" onclick="alert('SCB: 0104306596400')">Bank Transfer</button>
-        <button class="pay-btn" onclick="closeConcierge()">Dismiss</button>
-    </div>
-
-    <div id="beta-site">
-        <div class="beta-header">BETA PRESTIGE // ADMIN_NODE_ACCESS</div>
-        <div class="grid">
-            <div class="admin-box">
-                <h3>Update Manifest</h3>
-                <input type="text" id="admin-item-name" placeholder="Item Name">
-                <select id="admin-origin">
-                    <option value="CHINA">CHINA FOUNDRY</option>
-                    <option value="LUSAKA">LUSAKA STORAGE NODE</option>
-                </select>
-                <button class="pay-btn" style="margin-top:20px;">Push to Alpha</button>
-            </div>
+    <div id="beta-ui">
+        <h2 style="color:var(--ruby); border-bottom: 1px solid var(--ruby); padding-bottom: 20px;">OS CONCIERGE: ARCHITECT_01</h2>
+        <div style="padding: 40px; border: 1px solid #1a1a1a; background: #080808;">
+            <p style="font-family:monospace; color:#555;">// OS Command: Input supplier link and foundry coordinate...</p>
+            <textarea style="width:100%; height: 200px; background:none; border:1px solid #333; color:#fff; font-family:monospace; padding:20px; outline:none;"></textarea>
+            <button class="process-btn" style="margin-top:20px;">PUSH RECALIBRATION TO ALPHA</button>
         </div>
-        <button class="pay-btn" style="border-color:var(--ruby); width:200px; margin-top:50px;" onclick="exitBeta()">Lock Alpha</button>
+        <button class="process-btn" style="border-color: var(--ruby); margin-top:50px;" onclick="toggleSystemViews('alpha')">Lock OS Pad</button>
+    </div>
+
+    <div id="concierge-avatar" onclick="document.getElementById('concierge-terminal').style.toggle()">A</div>
+    <div id="concierge-terminal">
+        <div style="color: var(--ruby);">CADENCE: operational</div>
+        <div>VECTOR.01 Cargo // STATUS: frictionless_flow</div>
+        <p style="color: var(--emerald);">Your Emerald Freight is in motion. ETA stable.</p>
+        <p style="color: #444;">Need recalibration?</p>
     </div>
 
     <script>
-        function accessArchitect() {
-            let pass = prompt("ENTER_PASSPHRASE:");
-            if (pass === "ARCHITECT_01") {
+        function toggleSystemViews(view) {
+            if (view === 'beta') {
                 document.getElementById('alpha-ui').style.display = 'none';
-                document.getElementById('beta-site').style.display = 'block';
-            } else { alert("ACCESS_DENIED"); }
+                document.getElementById('beta-ui').style.display = 'block';
+            } else {
+                document.getElementById('beta-ui').style.display = 'none';
+                document.getElementById('alpha-ui').style.display = 'block';
+            }
         }
-        function exitBeta() {
-            document.getElementById('beta-site').style.display = 'none';
-            document.getElementById('alpha-ui').style.display = 'block';
+        function initiateGhostFold() { document.getElementById('payment-node').style.display = 'block'; }
+        // Concierge Terminal Toggle
+        document.getElementById('concierge-avatar').onclick = function() {
+            let t = document.getElementById('concierge-terminal');
+            t.style.display = (t.style.display === 'block') ? 'none' : 'block';
         }
-        function openConcierge(item, foundry, eta) {
-            document.getElementById('concierge-text').innerHTML = `ITEM: ${item}<br>FOUNDRY: ${foundry}<br>ETA: ${eta}<br>STATUS: READY FOR RECALIBRATION`;
-            document.getElementById('concierge').style.display = 'block';
-        }
-        function closeConcierge() { document.getElementById('concierge').style.display = 'none'; }
+        // Admin unlock (invisible trigger in render canvas)
+        document.getElementById('alpha-customizer').addEventListener('dblclick', function() {
+            let p = prompt('SYSTEM_LOCK:');
+            if (pass === 'ARCHITECT_01') { toggleSystemViews('beta'); }
+        });
     </script>
 </body>
 </html>
