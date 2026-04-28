@@ -3,58 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LILT & SONIC SINC | 432Hz</title>
+    <title>L I L T | APPAREL COLLECTION</title>
     <style>
-        body { background: #000; color: #fff; font-family: sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
-        header { padding: 40px 20px; text-align: center; border-bottom: 1px solid #222; }
-        h1 { letter-spacing: 10px; font-weight: 100; margin: 0; }
-        .frequency { color: #555; font-size: 10px; margin-top: 10px; text-transform: uppercase; }
-        section { padding: 40px 20px; }
-        h2 { border-left: 2px solid #fff; padding-left: 15px; font-weight: 300; text-transform: uppercase; font-size: 1.2rem; }
-        .glide-container { display: flex; gap: 20px; overflow-x: auto; padding: 20px 0; scrollbar-width: none; -ms-overflow-style: none; }
-        .glide-container::-webkit-scrollbar { display: none; }
-        .card { min-width: 250px; height: 350px; border: 1px solid #222; background: #050505; display: flex; flex-direction: column; justify-content: flex-end; padding: 15px; transition: 0.3s; }
-        .card:hover { border-color: #fff; }
-        footer { position: fixed; bottom: 0; width: 100%; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); padding: 20px; border-top: 1px solid #333; text-align: center; z-index: 100; }
-        .btn { background: #fff; color: #000; border: none; padding: 12px 40px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; }
-        .player { font-size: 11px; margin-bottom: 10px; color: #888; }
+        :root { --accent: #ff0055; --gold: #c5a059; --bg: #000; --text: #fff; }
+        body { background: var(--bg); color: var(--text); font-family: 'Times New Roman', serif; margin: 0; letter-spacing: 0.2em; overflow-x: hidden; }
+        
+        /* HEADER FREQUENCY */
+        header { padding: 40px; border-bottom: 1px solid #111; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 100; }
+        .nav-meta { font-size: 10px; color: #444; }
+
+        /* THE MANIFEST SECTION */
+        .hero { height: 70vh; display: flex; flex-direction: column; justify-content: center; padding: 60px; border-bottom: 1px solid #111; }
+        .meta-code { font-family: monospace; color: #333; font-size: 11px; margin-bottom: 20px; }
+        .main-title { font-size: 5rem; font-weight: 100; margin: 0; text-transform: uppercase; }
+        .subtitle { border-left: 2px solid var(--accent); padding-left: 20px; font-size: 12px; color: #666; margin-top: 20px; }
+
+        /* CATALOG NAVIGATION (Base44 Spec) */
+        .catalog-nav { padding: 60px; }
+        .nav-item { display: flex; align-items: baseline; gap: 40px; padding: 30px 0; border-bottom: 1px solid #111; transition: 0.4s; cursor: pointer; }
+        .nav-item:hover { color: var(--accent); padding-left: 20px; }
+        .nav-num { font-family: monospace; font-size: 10px; color: #333; }
+        .nav-label { font-size: 2.5rem; text-transform: uppercase; font-weight: 100; }
+
+        /* CONCIERGE TERMINAL */
+        .concierge { background: #050505; border: 1px solid #111; margin: 40px; padding: 30px; font-family: monospace; font-size: 12px; color: #888; }
+        .concierge-header { color: var(--accent); margin-bottom: 15px; text-transform: uppercase; }
+        .concierge-input { background: none; border: 1px solid #222; color: #fff; width: 100%; padding: 15px; margin-top: 20px; outline: none; }
+
+        footer { position: fixed; bottom: 0; width: 100%; background: rgba(0,0,0,0.9); border-top: 1px solid #111; padding: 20px; display: flex; justify-content: space-between; z-index: 1000; }
+        .btn-claim { background: #fff; color: #000; border: none; padding: 10px 40px; font-weight: bold; text-transform: uppercase; cursor: pointer; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>LILT</h1>
-        <div class="frequency">Sonic Sinc Engine • 432Hz Harmony • Alpha Glide v1.0</div>
+        <div class="logo">L I L T</div>
+        <div class="nav-meta">CART [00] // FREQ // 2026.04.28</div>
     </header>
 
-    <section>
-        <h2>Sports</h2>
-        <div class="glide-container">
-            <div class="card">Running Shoes (Pending Sync)</div>
-            <div class="card">Jerseys (Pending Sync)</div>
-            <div class="card">Boots (Pending Sync)</div>
-        </div>
-    </section>
+    <div class="hero">
+        <div class="meta-code">// LLT - VC01 - ALPHA COLLECTION - 2026</div>
+        <h1 class="main-title">L I L T</h1>
+        <div class="subtitle">APPAREL COLLECTION // VECTOR.01</div>
+    </div>
 
-    <section>
-        <h2>Streetwear</h2>
-        <div class="glide-container">
-            <div class="card">North Face / Cotton High-End</div>
-            <div class="card">Loose Fit Iterations</div>
-        </div>
-    </section>
+    <div class="catalog-nav">
+        <div class="nav-item"><span class="nav-num">00.01</span><span class="nav-label">CATALOG</span></div>
+        <div class="nav-item"><span class="nav-num">00.02</span><span class="nav-label">OUTERWEAR</span></div>
+        <div class="nav-item"><span class="nav-num">00.03</span><span class="nav-label">TOPS</span></div>
+        <div class="nav-item"><span class="nav-num">00.04</span><span class="nav-label">BOTTOMS</span></div>
+        <div class="nav-item"><span class="nav-num">00.05</span><span class="nav-label">LAYERS</span></div>
+    </div>
 
-    <section style="margin-bottom: 150px;">
-        <h2>Smart</h2>
-        <div class="glide-container">
-            <div class="card">Ralph Lauren / Lacoste / Gucci Golf</div>
-            <div class="card">Prada Professional</div>
-        </div>
-    </section>
+    <div class="concierge">
+        <div class="concierge-header">CONCIERGE ACTIVE</div>
+        <div>Item: South Africa 2026.<br>Mode: 24H local stock.<br>Price Calibration: K550 / R476 / $26.</div>
+        <input type="text" class="concierge-input" placeholder="State your recalibration...">
+    </div>
 
-    <footer>
-        <div class="player">NOW TUNING: BIOLOGICAL RESONANCE [AMAPIANO BEAT]</div>
-        <button class="btn" onclick="alert('PURCHASE FREQUENCY SYNC:\nAirtel: 0976622084 (Henry Mumba)\nBank: SCB 0104306596400\nPayPal: G4SFBFM9HVFUS')">CLAIM MATTER</button>
+    <footer style="margin-top: 100px;">
+        <div style="font-size: 10px; color: #444;">SONIC SINC ENGINE [432Hz]</div>
+        <button class="btn-claim" onclick="alert('GATEWAY: 0976622084 | SCB: 0104306596400')">CLAIM MATTER</button>
     </footer>
 
 </body>
